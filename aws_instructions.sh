@@ -35,3 +35,6 @@ scp -i MyKeyPair.pem aa.json ec2-user@ec2-52-91-68-41.compute-1.amazonaws.com:/h
 
 # ssh
 ssh -i MyKeyPair.pem ec2-user@ec2-52-91-68-41.compute-1.amazonaws.com
+
+# Query EC2 Instances
+aws ec2 describe-instances --query 'Reservations[*].Instances[*].[InstanceId,ImageId,State.Name,Placement.AvailabilityZone,Instances.InstanceType]'
